@@ -1,4 +1,4 @@
-# PyBer Challenge
+ PyBer Challenge
 
 ## Overview of Project
 
@@ -65,7 +65,7 @@ We then created a new data frame including these variables and added a few forma
 ![PyBer Summary per City Type](https://github.com/MaureenFromuth/PyBer_Analysis/blob/master/Summary_PyBer.png)
 
 
-This summary of the PyBer data highlighted a significant difference between the total number of drivers, rides, and fares for each city type.  For example, there are more than 10 times the number of rides in urban areas as there is in rural areas, and almost 6 times the number of suburban rides are there are rural rides.  The number of drivers in urban areas is 30 times more than in rural areas, and suburban drivers are more than 6 times those in rural areas.  The total fare is also quite different between each with urban fares being 9 times more than rural and suburban fares being 4.5 times more than rural.  With the difference between drivers and rides for rural vs. urban being significantly greater than the difference between fares, the result is that the fares per ride and fares per driver is actually greater for rural drivers/rides than it is for urban and suburban.   More specifically, the fare per driver is 3 times greater in rural areas than in urban areas, and the fare per ride is 1.4 times greater for rural rides than it is for urban rides.
+This summary of the PyBer data highlighted a significant difference between the total number of drivers, rides, and fares for each city type.  For example, there are more than 10 times the number of rides in urban areas as there is in rural areas, and almost 6 times the number of suburban rides are there are rural rides.  The number of drivers in urban areas is 30 times more than in rural areas, and suburban drivers are more than 6 times those in rural areas.  The total fare is also quite different between each with urban fares being 9 times more than rural and suburban fares being 4.5 times more than rural.  With the difference between drivers and rides for rural vs. urban being significantly greater than the difference between fares, the result is that the fares per ride and fares per driver is actually greater for rural drivers/rides than it is for urban and suburban.   More specifically, the fare per driver is 3 times greater in rural areas than in urban areas, and the fare per ride is 1.4 times greater for rural rides than it is for urban rides.  This difference in average fare per ride and driver may be the result of customers requesting rides for longer distances due to their lack of proximity to their end destination.  We will need additional data, however, to include length of ride in minutes and miles to validate this assessment.
 
 
 ### Weekly Fares per Types of City
@@ -111,25 +111,15 @@ fare_per_week = fare_per_date_range.resample('W').sum()
 
 ![PyBer Total Weekly Fare per City Type](https://github.com/MaureenFromuth/PyBer_Analysis/blob/master/Total%20Fares%20by%20City%20Type.png)
 
-
+In general the weekly fares per type of city reflects similar differences as we see in the overall summary per type of city.  There are some interesting observations, however, to include spikes in both suburban and rural fares during holiday weekends and during the late spring/early summer timeframe.  More specifically, during the third week of January you see a significant jump in fares for rural rides.  This was Martin Luther King Jr. Day, a day in which many families take vacation and either travel out of the area or take advantage of the long weekend.  Likewise, you see a similar hike the week of 18 February which is Washington’s birthday, another long weekend.  You do not see the same level of spike in rides within rural and urban cities, however.  This could be for a myriad of reasons to include the proximity to events vs. rural drivers who would need to drive to those events either in the city or in suburban areas.  Finally, you also see an interesting increase in suburban drivers around the end of April.  This may be indicative of a rise in suburban drivers due to summer months and either spring break or vacation, but more data is needed for other years to validate this assessment.  
 
 
 ## Summary
 
-There are a few overall conclusions we can draw from the comparisons between the summaries with the original data and the updated data.  The following outlines four key areas in which we identify changes. 
+With this data, we can make three recommendations to improve disparities among types of cities.  
 
-*Change 1 - Performance Per School Drop*
- 
-With the original data, Thomas High School ranked number two out of fifteen schools based off of overall percentage of students who passed both the math and reading tests.  With the new data, however, they dropped to number 8 out of fifteen, with their overall percentage of passing dropping from 90.9% to 65.8%.  As identified above this significant drop is due to the fact that our calculations included the original total student population for Thomas High School.  This drop indicates how important the 9th grade scores were in their initial #2 ranking, but, due to the method of calculating the overall percentage of passing, it is difficult to identify how much of an impact their scores had.
+First, one of the largest disparities is the number of drivers in rural and suburban cities.  By creating a campaign to increase drivers in these cities cities, you can increase the supply and thereby increase the amount of fares they bring in.  With greater fares per week, you can decrease the disparity in weekly fares in rural cities.  Additionally, with the data showing that the average fare per driver is the result of a small supply of drivers doing the majority of rides, the more drivers the less average fare per driver.  This will allow that to level out and decrease the disparity in fare per ride in urban cities as opposed to rural cities.
 
-*Change 2 - Decrease in the % of Students Passing Math, Reading, and Both within their Size, Spending, and Type Bin*
+Another disparity is in the number of rides in rural and suburban areas.  You can attack this by creating a campaign that targets more rides in rural and suburban areas during holidays and the summer moths.  Understanding that these are the times with greater demand, you can use the additional drivers from above to increase rides in these weeks.  You can do this through deliberate marketing campaigns.  By increasing the rides during these weeks, you can increase the fares and rides, thereby decreasing the disparity in rides.
 
-As identified above, although the average scores did not have a noticeable change, there was a significant decrease in the percentage of students who pass reading, math, and both reading and math.  These decreases were not significant within the spending and size bins, and slightly less so within the type.  This indicates that the 9th grade scores were significantly higher than many of their peers from other schools in these bins. 
-
-*Change 3 - Small Increase in the Average Reading Scores within their Size, Spending, and Type Bin*
-
-Within each of these bins there was a negligible increase between the old and the updated data for the average reading scores.  This change indicated that the 9th grade reading scores were likely lower than the rest of the grades’ reading scores.  The math and reading scores per grade summary confirmed this, with the 9th grade reading scores at Thomas High School being slightly less than the 10th and 12th graders.  
-
-*Change 4 - The Average Math Scores for the District Decreased while the Average Reading Scores Increased *
-
-Although both of these changes were minimal and negligible depending on the formatting, there was a small decrease in average math scores for the district and a negligible increase in average reading scores when we removed the erroneous data.  As mentioned above, the minuscule increase in average reading scores is a result of removing the 9th grade scores that were below the average and enough so that it was pulling the overall average reading scores down.  
+Finally, there is a disparity in the amount of fares in rural and suburban cities.  If you decrease the fare per ride in these cities, you may be able to draw up more demand.  When coupled with increased drivers and a deliberate marking campaign, you may be able to increase the amount of rides in these cities and thereby decrease the disparity in fares overall.   
