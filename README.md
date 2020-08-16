@@ -70,6 +70,39 @@ This summary of the PyBer data highlighted a significant difference between the 
 
 ### Weekly Fares per Types of City
 
+To assess the changes in total fare per week based on the type of city, we utilized the groupby function in addition to the pivot and resample functions.  Using the code below, we first grouped the data by type of city and then date to identify the total in fare for that specific date.  
+
+```
+# 9. Using groupby() on the pyber_data_df to create a new DataFrame showing the sum of the fares for each date where the indices are the city type and date.
+fare_per_dtg_type = pyber_data_df.groupby(["type", "date"]).sum()[["fare"]]
+```
+
+Ensuring the index for our new dataframe is correct, we reset the index to identify a city type for each row, and then created a pivot table with the date as the index, the column as the types of cities, and the values as the total fare.  
+
+```
+# 10. Reset the index on the DataFrame you created in #1. This is needed to use the 'pivot()' function.
+# df = df.reset_index()
+fare_per_dtg_type = fare_per_dtg_type.reset_index()
+
+# 11. Create a pivot table with the 'date' as the index, the columns ='type', and values='fare' to get the total fares for each type of city by the date. 
+fare_per_dtg_type_pivot = fare_per_dtg_type.pivot(index = 'date', columns = 'type', values = 'fare')
+```
+
+We then used the loc function to select specific dates for our analysis, namely 1 Jan 2019 to 29 Apr 2019.
+
+```
+# 12. Create a new DataFrame from the pivot table DataFrame using loc on the given dates, '2018-01-01':'2018-04-29'.
+fare_per_date_range = fare_per_dtg_type_pivot.loc['2019-01-01':'2019-04-29']
+```
+
+Finally, we set the index for the dataframe to date time and then resampled the dataframe based on a weekly basis with the values being the sum of the fares for that week.  This provided us the dataframe below and the basis for our line graph also listed below.
+
+```
+# 15. Create a new DataFrame using the "resample()" function by week 'W' and get the sum of the fares for each week.
+fare_per_week = fare_per_date_range.resample('W').sum()
+```
+
+
 >**DataFrame: PyBer Total Weekly Fare per City Type**
 
 ![DataFrame: PyBer Total Weekly Fare per City Type](https://github.com/MaureenFromuth/PyBer_Analysis/blob/master/Total%20Weekly%20Fare%20per%20City%20Type.png)
@@ -77,6 +110,7 @@ This summary of the PyBer data highlighted a significant difference between the 
 >**Line Graph: PyBer Total Weekly Fare per City Type**
 
 ![PyBer Total Weekly Fare per City Type](https://github.com/MaureenFromuth/PyBer_Analysis/blob/master/Total%20Fares%20by%20City%20Type.png)
+
 
 
 
